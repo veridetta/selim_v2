@@ -151,6 +151,7 @@ class PenggunaController extends Controller
     $breadcrumbs = [ ['link' => "javascript:void(0)", 'name' => auth()->user()->role], ['name' => "Izin Absen"]];
 
     $data=Lamarans::select('lamarans.*','jabatans.jabatan as jabatan_jabatan')->where('lamarans.id_karyawan','=',auth()->user()->id_karyawan)->join('jabatans','jabatans.id','=','lamarans.jabatan')->first();
+    
     $val = array('primary','secondary','warning','danger','info');
     return view('layouts/users/karyawan/cuti', ['val'=>$val,'data'=>$data,'pageConfigs' => $pageConfigs, 'breadcrumbs' => $breadcrumbs]);
   }
